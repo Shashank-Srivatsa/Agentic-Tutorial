@@ -1,6 +1,6 @@
 # ADK Learning — Agentic AI with Google Agent Development Kit
 
-A hands-on tutorial series exploring Google ADK concepts: custom tools, multi-agent systems, and conversational memory. Each folder is a standalone agent you can run locally with `adk web`.
+A hands-on repository for exploring Google ADK concepts: custom tools, multi-agent systems, and conversational memory. Each folder is a standalone agent.
 
 ---
 
@@ -22,13 +22,3 @@ Demonstrates the Agent-as-a-Tool pattern for delegating specialized tasks.
 Builds a multi-day itinerary one day at a time, remembers your preferences across turns, and replaces anything you dislike.
 Demonstrates how session memory enables truly conversational, adaptive agents.
 
----
-
-## Running an Agent
-
-```bash
-cd Tutorial
-adk web
-```
-
-Select any agent from the dropdown in the browser UI.
