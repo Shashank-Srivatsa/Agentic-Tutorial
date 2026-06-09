@@ -1,5 +1,6 @@
 import requests
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 
 LOCATION_COORDINATES = {
     "sunnyvale": "37.3688,-122.0363",
@@ -65,7 +66,7 @@ def get_live_weather_forecast(location: str) -> dict:
 
 root_agent = Agent(
     name="weather_aware_planner",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="A trip planner that checks real-time weather before making outdoor activity suggestions.",
     instruction="""
 You are a cautious trip planner with access to live US weather data.

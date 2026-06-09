@@ -3,6 +3,7 @@ from google.adk.agents import Agent
 from google.adk.tools import google_search
 from google.adk.tools import ToolContext
 from google.adk.tools.agent_tool import AgentTool
+from google.adk.models.lite_llm import LiteLlm
 
 # ─── Search Sub-Agent ────────────────────────────────────────────────────────
 # google_search is a Gemini built-in tool and cannot be mixed with custom
@@ -11,7 +12,7 @@ from google.adk.tools.agent_tool import AgentTool
 
 _search_agent = Agent(
     name="search_agent",
-    model="gemini-2.5-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="Performs real-time web searches and returns a concise summary.",
     instruction=(
         "You are a web search assistant. Use google_search to answer the query "
@@ -84,7 +85,7 @@ def get_live_weather_forecast(location: str) -> dict:
 
 food_critic_agent = Agent(
     name="food_critic_agent",
-    model="gemini-2.5-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="Gives witty, opinionated restaurant recommendations for a given location.",
     instruction=(
         "You are a snobby but brilliant food critic. "
@@ -95,7 +96,7 @@ food_critic_agent = Agent(
 
 concierge_agent = Agent(
     name="concierge_agent",
-    model="gemini-2.5-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="A five-star hotel concierge who handles travel and dining recommendations.",
     instruction=(
         "You are a five-star hotel concierge. "
@@ -107,7 +108,7 @@ concierge_agent = Agent(
 
 db_agent = Agent(
     name="db_agent",
-    model="gemini-2.5-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="Returns mock hotel and landmark data from the internal database.",
     instruction=(
         "You are a database agent. When asked for places, always return this exact mock JSON and nothing else: "
@@ -184,7 +185,7 @@ async def call_concierge_agent(question: str, tool_context: ToolContext) -> str:
 
 root_agent = Agent(
     name="adaptive_trip_planner",
-    model="gemini-2.5-flash",
+    model=LiteLlm(model="groq/llama-3.3-70b-versatile"),
     description="A comprehensive AI travel planner with real-time weather, hotel search, multi-agent dining recommendations, and adaptive multi-day itinerary planning.",
     instruction="""
 You are the "Adaptive Trip Planner" — a smart, friendly AI travel assistant that combines four superpowers:
